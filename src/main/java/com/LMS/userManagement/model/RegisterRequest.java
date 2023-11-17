@@ -1,9 +1,12 @@
 package com.LMS.userManagement.model;
 
+import com.LMS.userManagement.enumFile.Roles;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Set;
 
 @Data
 @Builder

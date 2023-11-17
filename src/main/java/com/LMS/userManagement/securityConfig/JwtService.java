@@ -24,6 +24,8 @@ public class JwtService {
     }
 
     public String generateToken(UserDetails userDetails){
+     //   Map<String,Object> extraClaims =new HashMap<>();
+      //  extraClaims.put("role",userDetails.getAuthorities());
         return generateToken(new HashMap<>(),userDetails);
     }
 
@@ -31,6 +33,8 @@ public class JwtService {
             Map<String,Object> extraClaims,
             UserDetails userDetails
     ){
+
+
         return  Jwts
                 .builder()
                 .setClaims(extraClaims)

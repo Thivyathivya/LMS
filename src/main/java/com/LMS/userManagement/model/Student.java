@@ -1,3 +1,4 @@
+/*
 package com.LMS.userManagement.model;
 
 import jakarta.persistence.*;
@@ -44,3 +45,4 @@ public class Student {
                     name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
 }
+*/

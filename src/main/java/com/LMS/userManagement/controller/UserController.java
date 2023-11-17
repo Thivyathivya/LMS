@@ -4,11 +4,12 @@ import com.LMS.userManagement.model.User;
 import com.LMS.userManagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/lms/api")
+@RequestMapping("/lms/api/demo")
 public class UserController {
 
     @Autowired
@@ -24,8 +25,10 @@ public class UserController {
         return null;
     }
 
-    @GetMapping("/hello")
-    public String hello(){
-        return "hello";
+    @GetMapping("/userRead")
+    @PreAuthorize("hasAuthority('user')")
+    public String userRead(){
+
+        return "User can  read";
     }
 }

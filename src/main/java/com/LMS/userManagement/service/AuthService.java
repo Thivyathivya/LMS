@@ -1,22 +1,23 @@
 package com.LMS.userManagement.service;
 
 import com.LMS.userManagement.config.AuthenticationResponse;
+import com.LMS.userManagement.enumFile.Roles;
 import com.LMS.userManagement.model.*;
 import com.LMS.userManagement.repository.UserRepository;
 import com.LMS.userManagement.securityConfig.JwtService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 public class AuthService {
 
-    private final UserRepository userRepository;
+    @Autowired
+    private  UserRepository userRepository;
 
     private final PasswordEncoder passwordEncoder;
 
@@ -29,7 +30,7 @@ public class AuthService {
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .confirmPassword(passwordEncoder.encode(request.getConfirmPassword()))
-                .role(Roles.USER)
+                .role(request.getRole())
                 .build();
         userRepository.save(user);
         String jwtToken=jwtService.generateToken(user);

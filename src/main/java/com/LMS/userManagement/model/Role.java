@@ -1,3 +1,4 @@
+
 package com.LMS.userManagement.model;
 
 import jakarta.persistence.*;
@@ -20,17 +21,10 @@ public class Role {
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
 
-        private String name;
-        @ManyToMany(mappedBy = "roles")
-        private Collection<Student> student;
+        private String role;
 
-        @ManyToMany
-        @JoinTable(
-                name = "roles_privileges",
-                joinColumns = @JoinColumn(
-                        name = "role_id", referencedColumnName = "id"),
-                inverseJoinColumns = @JoinColumn(
-                        name = "privilege_id", referencedColumnName = "id"))
-        private Collection<Privilege> privileges;
+
+
     }
+
 

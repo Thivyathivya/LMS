@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
 
-    private final AuthService authService;
+    @Autowired
+    private  AuthService authService;
 
 @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register (
@@ -27,14 +28,8 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> authentication (
-            @RequestHeader String email,@RequestHeader String password){
+            @RequestHeader String email,@RequestHeader String password) {
 
-        return  ResponseEntity.ok(authService.authentication(email,password));
+        return ResponseEntity.ok(authService.authentication(email, password));
     }
-
-
-
-
-
-
 }
