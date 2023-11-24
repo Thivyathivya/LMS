@@ -1,8 +1,7 @@
 package com.LMS.userManagement.controller;
 
 import com.LMS.userManagement.config.AuthenticationResponse;
-import com.LMS.userManagement.model.AuthenticationRequest;
-import com.LMS.userManagement.model.RegisterRequest;
+import com.LMS.userManagement.dto.RegisterRequest;
 import com.LMS.userManagement.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +19,10 @@ public class AuthController {
     private  AuthService authService;
 
 @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register (
+    public ResponseEntity<String> register (
                             @RequestBody RegisterRequest request){
 
-    return ResponseEntity.ok(authService.register(request));
+    return authService.register(request);
 }
 
     @PostMapping("/login")
@@ -32,4 +31,10 @@ public class AuthController {
 
         return ResponseEntity.ok(authService.authentication(email, password));
     }
+
+    @GetMapping("/welcome")
+    public String welcome(){
+    return "Welcome";
+    }
+
 }
