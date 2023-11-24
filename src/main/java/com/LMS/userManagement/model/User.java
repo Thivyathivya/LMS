@@ -1,6 +1,7 @@
 package com.LMS.userManagement.model;
 
 import com.LMS.userManagement.enumFile.Roles;
+import com.LMS.userManagement.token.Token;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,8 +11,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -29,21 +34,29 @@ public class User implements UserDetails {
     public Long id;
 
     @Column(nullable = false)
+    @NotBlank(message = "Username cannot be empty")
     public String name;
 
     @Column(nullable = false,unique = true)
+    @NotBlank(message = "email cannot be empty")
+   // @Email(message = "Invalid email Format")
     public String email;
 
     @Column(nullable = false)
+    @NotBlank(message = "Password cannot be blank")
+    @Size(min = 6, message = "Password must have at least 6 characters")
     public String password;
 
     @Column(nullable = false)
     public String confirmPassword;
 
-    public Timestamp createdDate=Timestamp.valueOf(LocalDateTime.now());
+    public Timestamp createdDate;
 
 
     public String role;
+
+ //   @OneToMany(mappedBy = "userDetails")
+  //  private List<Token> tokens;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

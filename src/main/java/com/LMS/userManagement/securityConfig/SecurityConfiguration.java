@@ -32,7 +32,9 @@ public class SecurityConfiguration {
        http.csrf(csrf ->csrf.disable())
                         .authorizeHttpRequests(auth->
                             auth.requestMatchers("lms/api/auth/**").permitAll()
-                                    .anyRequest().authenticated()
+                                    .requestMatchers("/lms/api/user").hasAnyRole("admin","user")
+                                    .requestMatchers("/lms/api/admin").hasRole("admin")
+                                    .requestMatchers("/lms/api/auth/upload").permitAll()
                          )
                 .sessionManagement(sess->sess
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
