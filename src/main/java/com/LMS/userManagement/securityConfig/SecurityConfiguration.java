@@ -34,7 +34,7 @@ public class SecurityConfiguration {
                             auth.requestMatchers("lms/api/auth/**").permitAll()
                                     .requestMatchers("/lms/api/user").hasAnyRole("admin","user")
                                     .requestMatchers("/lms/api/admin").hasRole("admin")
-                                    .requestMatchers("/lms/api/auth/upload").permitAll()
+                                    .anyRequest().authenticated()
                          )
                 .sessionManagement(sess->sess
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
