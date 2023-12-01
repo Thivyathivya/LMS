@@ -12,7 +12,7 @@ public class UserController {
 
 
     @GetMapping("/userRead")
-    @PreAuthorize("hasAuthority('user') or hasAuthority('admin') ")
+    @PreAuthorize("hasAuthority('user')")
     public String userRead(){
 
         return "User can  read";
