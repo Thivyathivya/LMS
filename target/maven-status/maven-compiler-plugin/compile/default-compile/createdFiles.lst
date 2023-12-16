@@ -12,10 +12,13 @@ com/LMS/userManagement/service/CourseService.class
 com/LMS/userManagement/enumFile/Permission.class
 com/LMS/userManagement/util/GcpUtil.class
 com/LMS/userManagement/dto/CourseDto.class
+com/LMS/userManagement/model/SubSection.class
 com/LMS/userManagement/securityConfig/ApplicationConfig.class
 com/LMS/userManagement/model/User.class
+com/LMS/userManagement/repository/QuizRepository.class
 com/LMS/userManagement/config/AuthenticationResponse.class
 com/LMS/userManagement/dto/AuthenticationRequest$AuthenticationRequestBuilder.class
+com/LMS/userManagement/repository/SectionRepository.class
 com/LMS/userManagement/config/AuthenticationResponse$AuthenticationResponseBuilder.class
 com/LMS/userManagement/enumFile/Roles.class
 com/LMS/userManagement/model/Course.class
@@ -27,8 +30,11 @@ com/LMS/userManagement/dto/RegisterRequest$RegisterRequestBuilder.class
 com/LMS/userManagement/controller/AdminController.class
 com/LMS/userManagement/repository/UserRepository.class
 com/LMS/userManagement/dto/AuthenticationRequest.class
+com/LMS/userManagement/repository/SubSectionRepository.class
 com/LMS/userManagement/token/Token$TokenBuilder.class
 com/LMS/userManagement/model/CourseDetails.class
 com/LMS/userManagement/service/AuthService.class
 com/LMS/userManagement/securityConfig/JwtService.class
 com/LMS/userManagement/controller/UserController.class
+com/LMS/userManagement/model/Section.class
+com/LMS/userManagement/model/Quiz.class

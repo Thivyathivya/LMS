@@ -32,8 +32,11 @@ public class SecurityConfiguration {
        http.csrf(csrf ->csrf.disable())
                         .authorizeHttpRequests(auth->
                             auth.requestMatchers("lms/api/auth/**").permitAll()
-                                    .requestMatchers("/lms/api/user/**").permitAll()
-                                    .requestMatchers("/lms/api/admin").hasRole("admin")
+                                    .requestMatchers("/lms/api/user/getAllCourseNoToken").permitAll()
+                                    .requestMatchers("/lms/api/user/getAllCourseDetail").permitAll()
+                                    .requestMatchers("/lms/api/user/getCourseById").permitAll()
+                                   /* .requestMatchers("/lms/api/user/").hasRole("user")
+                                    .requestMatchers("/lms/api/admin").hasRole("admin")*/
                                     .anyRequest().authenticated()
                          )
                 .sessionManagement(sess->sess

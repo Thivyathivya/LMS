@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -12,7 +15,8 @@ import lombok.NoArgsConstructor;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long courseId;
+    @Column(name = "course_id")
+    private Integer courseId;
     private String title;
     private String authorName;
     private String description;
@@ -21,6 +25,17 @@ public class Course {
     private Long enrolled;
     private String category;
     private Integer ratings;
+    private String language;
+    private String overview;
+    @Column(columnDefinition = "TEXT")
+    private String whatYouWillLearn;
+    private Integer price;
+    private Date date;
+    @OneToMany(targetEntity = Section.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id",referencedColumnName = "course_id")
+    private List<Section> sections;
+
+
 
 
 }

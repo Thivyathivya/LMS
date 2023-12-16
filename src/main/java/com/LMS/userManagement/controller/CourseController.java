@@ -3,6 +3,7 @@ package com.LMS.userManagement.controller;
 import com.LMS.userManagement.model.Course;
 import com.LMS.userManagement.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class CourseController {
     }
     @GetMapping("/getCourseById")
     @PreAuthorize("hasAuthority('user')")
-    public ResponseEntity<?> searchCourseById(@RequestHeader Long courseId){
+    public ResponseEntity<?> searchCourseById(@RequestHeader Integer courseId){
         Course course = courseService.searchCourseById(courseId);
         if(course != null){
             return ResponseEntity.ok(course);
@@ -36,15 +37,23 @@ public class CourseController {
             return ResponseEntity.ok("Course not found");
         }
     }
-   // @GetMapping("/getAllCourse")
- //   @PreAuthorize("hasAuthority('user')")
-    public ResponseEntity<?> searchAllCourse(){
-       List<Course> course = courseService.searchAllCourse();
+   @GetMapping("/getAllCourse")
+   @PreAuthorize("hasAuthority('user')")
+    public ResponseEntity<?> getAllCourses(@RequestHeader int pageNo,@RequestHeader int pageSize){
+       Page<Course> course = courseService.getAllCourses(pageNo,pageSize);
         if(course != null){
             return ResponseEntity.ok(course);
         }else {
             return ResponseEntity.ok("Course not found");
         }
+    }
+    @GetMapping("/searchCourses")
+    public ResponseEntity<?> searchCourses(@RequestHeader(required = false) String title,@RequestHeader(required = false) String description,@RequestHeader(required = false) String category){
+        List<Course> courses =courseService.searchCourses(title,description,category);
+        if(!courses.isEmpty()){
+            return ResponseEntity.ok(courses);
+        }
+        return ResponseEntity.ok("Course not found");
     }
 
 
