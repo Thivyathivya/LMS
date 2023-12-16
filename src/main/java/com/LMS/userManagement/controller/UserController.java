@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/getAllCourse")
-    @PreAuthorize("hasAuthority('user')")
+  //  @PreAuthorize("hasAuthority('user')")
     public List<Course> getAllCourse(){
       return   courseRepository.findAll();
 
