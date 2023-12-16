@@ -23,7 +23,7 @@ public class UserController {
         return "User can  read";
     }
 
-    @GetMapping("/getAllCourse")
+    @GetMapping("/getAllCourseNoToken")
   //  @PreAuthorize("hasAuthority('user')")
     public List<Course> getAllCourse(){
       return   courseRepository.findAll();

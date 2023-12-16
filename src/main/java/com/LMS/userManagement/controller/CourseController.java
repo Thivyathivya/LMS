@@ -36,8 +36,8 @@ public class CourseController {
             return ResponseEntity.ok("Course not found");
         }
     }
-   // @GetMapping("/getAllCourse")
- //   @PreAuthorize("hasAuthority('user')")
+   @GetMapping("/getAllCourse")
+   @PreAuthorize("hasAuthority('user')")
     public ResponseEntity<?> searchAllCourse(){
        List<Course> course = courseService.searchAllCourse();
         if(course != null){
