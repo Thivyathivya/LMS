@@ -11,8 +11,8 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin(origins = "*")
 @RequestMapping("/lms/api/user")
+@CrossOrigin(origins = "*")
 public class CourseController {
     @Autowired
     CourseService courseService;
@@ -36,8 +36,8 @@ public class CourseController {
             return ResponseEntity.ok("Course not found");
         }
     }
-    @GetMapping("/getAllCourse")
-    @PreAuthorize("hasAuthority('user')")
+   // @GetMapping("/getAllCourse")
+ //   @PreAuthorize("hasAuthority('user')")
     public ResponseEntity<?> searchAllCourse(){
        List<Course> course = courseService.searchAllCourse();
         if(course != null){
@@ -46,6 +46,9 @@ public class CourseController {
             return ResponseEntity.ok("Course not found");
         }
     }
+
+
+
 
 
 

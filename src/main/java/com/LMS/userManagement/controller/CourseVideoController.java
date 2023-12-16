@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/lms/api/auth")
+@CrossOrigin(origins = "*")
 public class CourseVideoController {
 
    
