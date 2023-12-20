@@ -18,7 +18,7 @@ public class CourseController {
     @Autowired
     CourseService courseService;
     @PostMapping("/saveCourse")
-    @PreAuthorize("hasAuthority('user')")
+   // @PreAuthorize("hasAuthority('user')")
     public ResponseEntity<?> saveCourse(@RequestBody List<Course> course){
      List<Course> courseDto = courseService.saveCourse(course);
     if(courseDto != null){
@@ -28,7 +28,7 @@ public class CourseController {
     }
     }
     @GetMapping("/getCourseById")
-    @PreAuthorize("hasAuthority('user')")
+ //   @PreAuthorize("hasAuthority('user')")
     public ResponseEntity<?> searchCourseById(@RequestHeader Integer courseId){
         Course course = courseService.searchCourseById(courseId);
         if(course != null){
@@ -38,7 +38,7 @@ public class CourseController {
         }
     }
    @GetMapping("/getAllCourse")
-   @PreAuthorize("hasAuthority('user')")
+  // @PreAuthorize("hasAuthority('user')")
     public ResponseEntity<?> getAllCourses(@RequestHeader int pageNo,@RequestHeader int pageSize){
        Page<Course> course = courseService.getAllCourses(pageNo,pageSize);
         if(course != null){

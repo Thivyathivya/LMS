@@ -14,8 +14,6 @@ import java.util.List;
 @RequestMapping("/lms/api/user")
 public class UserController {
 
-    @Autowired
-    CourseRepository courseRepository;
 
     @GetMapping("/userRead")
     @PreAuthorize("hasAuthority('user')")
@@ -24,15 +22,5 @@ public class UserController {
         return "User can  read";
     }
 
-    @GetMapping("/getAllCourseNoToken")
-  //  @PreAuthorize("hasAuthority('user')")
-    public ResponseEntity<?> getAllCourse(){
-        List<Course> courses =courseRepository.findAll();
 
-        if (courses.isEmpty()){
-            return ResponseEntity.ok("Courses Not found");
-        }
-      return   ResponseEntity.ok(courses);
-
-    }
 }
