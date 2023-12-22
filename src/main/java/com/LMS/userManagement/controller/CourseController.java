@@ -48,8 +48,8 @@ public class CourseController {
         }
     }
     @GetMapping("/searchCourses")
-    public ResponseEntity<?> searchCourses(@RequestHeader(required = false) String title,@RequestHeader(required = false) String description,@RequestHeader(required = false) String category){
-        List<Course> courses =courseService.searchCourses(title,description,category);
+    public ResponseEntity<?> searchCourses(@RequestParam("search") String search){
+        List<Course> courses =courseService.searchCourses(search);
         if(!courses.isEmpty()){
             return ResponseEntity.ok(courses);
         }

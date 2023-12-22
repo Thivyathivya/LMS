@@ -11,6 +11,13 @@ import java.util.List;
 @Repository
 public interface CourseRepository extends JpaRepository<Course,Integer> {
     Course findCourseByCourseId(Integer courseId);
+    @Query(value = "SELECT * FROM Course c WHERE " +
+            "c.title LIKE CONCAT('%',:search, '%')" +
+            "OR c.description LIKE CONCAT('%', :search, '%') OR c.category LIKE CONCAT ('%', :search, '%')",nativeQuery = true)
+    List<Course> findAll( @Param("search")String search);
+
+
+/*
     @Query(value = "SELECT * FROM course c " +
             "WHERE (:title IS NULL OR LOWER(c.title) LIKE CONCAT('%', LOWER(CAST(:title AS TEXT)), '%')) " +
             "AND (:description IS NULL OR LOWER(c.description) LIKE CONCAT('%', LOWER(CAST(:description AS TEXT)), '%')) " +
@@ -19,6 +26,8 @@ public interface CourseRepository extends JpaRepository<Course,Integer> {
     List<Course> findCoursesByTitleDescriptionCategory(
             @Param("title") String title,
             @Param("description") String description,
-            @Param("category") String category);}
+            @Param("category") String category);
 
+*/
 
+}
