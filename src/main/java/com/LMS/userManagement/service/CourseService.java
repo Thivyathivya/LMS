@@ -4,6 +4,7 @@ import com.LMS.userManagement.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,8 +25,8 @@ public class CourseService {
     }
 
 
-    public List<Course> searchCourses(String title, String description, String category) {
-        return courseRepository.findCoursesByTitleDescriptionCategory(title, description, category);
+    public List<Course> searchCourses(String search) {
+        return courseRepository.findAll(search);
     }
 
     public Page<Course> getAllCourses(int pageNo, int pageSize) {
