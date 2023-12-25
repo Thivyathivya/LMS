@@ -26,7 +26,7 @@ public class CourseService {
 
 
     public List<Course> searchCourses(String search) {
-        return courseRepository.findAll(search);
+        return courseRepository.searchAllCourse(search);
     }
 
     public Page<Course> getAllCourses(int pageNo, int pageSize) {
