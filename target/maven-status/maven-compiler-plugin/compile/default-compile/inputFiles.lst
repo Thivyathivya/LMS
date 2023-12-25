@@ -33,4 +33,5 @@
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/CourseController.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/repository/UserRepository.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/Quiz.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/util/LMSMailSender.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/enumFile/Permission.java

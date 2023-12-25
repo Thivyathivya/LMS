@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.LMS.userManagement.UserManagementApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.838 s - in com.LMS.userManagement.UserManagementApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.711 s - in com.LMS.userManagement.UserManagementApplicationTests

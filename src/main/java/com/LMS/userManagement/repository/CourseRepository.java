@@ -12,8 +12,9 @@ import java.util.List;
 public interface CourseRepository extends JpaRepository<Course,Integer> {
     Course findCourseByCourseId(Integer courseId);
     @Query(value = "SELECT * FROM course c WHERE " +
-            "c.title LIKE CONCAT('%',:search, '%')" +
-            "OR c.description LIKE CONCAT('%', :search, '%') OR c.category LIKE CONCAT ('%', :search, '%')",nativeQuery = true)
+            "c.title iLIKE CONCAT('%',:search, '%')" +
+            "OR c.description iLIKE CONCAT('%', :search, '%') " +
+            "OR c.category iLIKE CONCAT ('%', :search, '%')",nativeQuery = true)
     List<Course> searchAllCourse( @Param("search")String search);
 
 

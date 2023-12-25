@@ -4,6 +4,7 @@ com/LMS/userManagement/dto/RegisterRequest.class
 com/LMS/userManagement/model/User$UserBuilder.class
 com/LMS/userManagement/config/CloudStorageConfig.class
 com/LMS/userManagement/securityConfig/SecurityConfiguration.class
+com/LMS/userManagement/util/LMSMailSender.class
 com/LMS/userManagement/securityConfig/JwtAuthenticationFilter.class
 com/LMS/userManagement/controller/CourseVideoController.class
 com/LMS/userManagement/repository/CourseRepository.class
