@@ -50,10 +50,7 @@ public class CourseController {
     @GetMapping("/searchCourses")
     public ResponseEntity<?> searchCourses(@RequestParam("search") String search){
         List<Course> courses =courseService.searchCourses(search);
-        if(!courses.isEmpty()){
-            return ResponseEntity.ok(courses);
-        }
-        return ResponseEntity.ok("Course not found");
+       return ResponseEntity.ok(courses);
     }
 
 
