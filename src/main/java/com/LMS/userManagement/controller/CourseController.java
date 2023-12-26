@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -50,6 +51,9 @@ public class CourseController {
     @GetMapping("/searchCourses")
     public ResponseEntity<?> searchCourses(@RequestParam("search") String search){
         List<Course> courses =courseService.searchCourses(search);
+        if(courses.isEmpty()){
+            return ResponseEntity.ok(new ArrayList<>());
+        }
        return ResponseEntity.ok(courses);
     }
 
