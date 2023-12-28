@@ -1,5 +1,6 @@
 package com.LMS.userManagement.controller;
 
+import com.LMS.userManagement.model.BadgeCounts;
 import com.LMS.userManagement.model.QuizRank;
 import com.LMS.userManagement.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,11 @@ public class QuizController {
     @Autowired
     QuizService quizService;
     @PostMapping("/saveBadge")
-    public ResponseEntity<?> saveBadge(@RequestBody QuizRank quizRank){
-        QuizRank quizRank1 = quizService.saveBadge(quizRank);
-    if (quizRank1 != null){
-        return ResponseEntity.ok(quizRank1);
+    public ResponseEntity<?> saveBadge(@RequestBody QuizRank quizRank) {
+        BadgeCounts updatedBadgeCounts = quizService.saveBadge(quizRank);
+    if (updatedBadgeCounts != null){
+        return ResponseEntity.ok(updatedBadgeCounts);
     }
-    return ResponseEntity.ok("Gamification not found");
+    return ResponseEntity.ok("Badge not found");
     }
 }

@@ -1,9 +1,6 @@
 package com.LMS.userManagement.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,11 +13,12 @@ import lombok.NoArgsConstructor;
 public class QuizRank {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "rank_id")
     private Integer rankId;
     private Long userId;
-    private Integer sectionId;
+    private Integer subSectionId;
     private Integer energyPoints;
-    private String badge;
+    private int badge;
 
 
 
