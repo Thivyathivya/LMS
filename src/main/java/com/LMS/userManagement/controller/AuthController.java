@@ -19,7 +19,7 @@ public class AuthController {
     @Autowired
     private  AuthService authService;
 
-@PostMapping("/register")
+    @PostMapping("/register")
     public ResponseEntity<String> register (
                             @RequestBody RegisterRequest request){
 
@@ -42,6 +42,9 @@ public class AuthController {
     public ResponseEntity<?> saveAndEditProfile(@RequestBody ProfileDto profileRequest){
     return authService.saveAndEditProfile(profileRequest);
     }
-
+    @GetMapping("/getProfileById")
+    public ResponseEntity<?> getProfileById(@RequestHeader Long id){
+        return authService.getProfileById(id);
+    }
 
 }

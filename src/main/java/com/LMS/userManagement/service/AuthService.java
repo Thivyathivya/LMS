@@ -16,8 +16,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -81,5 +79,13 @@ public class AuthService {
             return ResponseEntity.ok(userRepository.save(user1)) ;
         }
         return ResponseEntity.ok("User does not found");
+    }
+
+    public ResponseEntity<?> getProfileById(Long id) {
+      Optional<User> user =  userRepository.findById(id);
+      if (!user.isEmpty()){
+          return ResponseEntity.ok(user);
+      }
+      return ResponseEntity.ok("User does not found");
     }
 }
