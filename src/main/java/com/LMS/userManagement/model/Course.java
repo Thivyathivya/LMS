@@ -19,6 +19,7 @@ public class Course {
     private Integer courseId;
     private String title;
     private String authorName;
+    @Column(columnDefinition = "TEXT")
     private String description;
     @Column(columnDefinition = "TEXT")
     private String thumbNail;

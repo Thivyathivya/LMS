@@ -12,6 +12,7 @@ public class BadgeCounts {
     private int gold;
     private int silver;
     private int bronze;
+    private Integer energyPoints;
 
 
 

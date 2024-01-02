@@ -1,6 +1,7 @@
 package com.LMS.userManagement.controller;
 
 import com.LMS.userManagement.config.AuthenticationResponse;
+import com.LMS.userManagement.dto.ProfileDto;
 import com.LMS.userManagement.dto.RegisterRequest;
 import com.LMS.userManagement.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -36,5 +37,11 @@ public class AuthController {
     public String welcome(){
     return "Welcome";
     }
+
+    @PostMapping("/saveAndEditProfile")
+    public ResponseEntity<?> saveAndEditProfile(@RequestBody ProfileDto profileRequest){
+    return authService.saveAndEditProfile(profileRequest);
+    }
+
 
 }

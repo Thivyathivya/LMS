@@ -24,6 +24,7 @@ C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\mo
 C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\model\Section.java
 C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\config\CloudStorageConfig.java
 C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\controller\AuthController.java
+C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\dto\ProfileDto.java
 C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\repository\SectionRepository.java
 C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\securityConfig\SecurityConfiguration.java
 C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\controller\AdminController.java

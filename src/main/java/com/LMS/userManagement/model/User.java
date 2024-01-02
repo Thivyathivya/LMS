@@ -2,6 +2,9 @@ package com.LMS.userManagement.model;
 
 import com.LMS.userManagement.enumFile.Roles;
 import com.LMS.userManagement.token.Token;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +13,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.servlet.View;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -45,15 +49,28 @@ public class User implements UserDetails {
     @Column(nullable = false)
     @NotBlank(message = "Password cannot be blank")
     @Size(min = 6, message = "Password must have at least 6 characters")
+    @JsonIgnore
     public String password;
-
     @Column(nullable = false)
+    @JsonIgnore
     public String confirmPassword;
 
     public Timestamp createdDate;
-
-
     public String role;
+
+    public String gender;
+
+    public String school;
+
+    public Integer standard;
+
+    public String city;
+
+    public String country;
+
+
+
+
 
  //   @OneToMany(mappedBy = "userDetails")
   //  private List<Token> tokens;

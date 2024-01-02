@@ -37,6 +37,7 @@ com\LMS\userManagement\model\Course.class
 com\LMS\userManagement\repository\CourseRepository.class
 com\LMS\userManagement\token\TokenRepository.class
 com\LMS\userManagement\UserManagementApplication.class
+com\LMS\userManagement\dto\ProfileDto.class
 com\LMS\userManagement\config\AuthenticationResponse$AuthenticationResponseBuilder.class
 com\LMS\userManagement\repository\QuizRankRepository.class
 com\LMS\userManagement\config\AuthenticationResponse.class

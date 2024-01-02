@@ -17,7 +17,7 @@ public interface QuizRankRepository extends JpaRepository<QuizRank,Integer> {
    /* @Query("SELECT COUNT(*) FROM QuizRank  WHERE userId =?1 AND badge =?2")
     Long countByUserIdAndBadge(@Param("userId") Long userId, @Param("badge") int badge);*/
     @Query(value = "SELECT COUNT(*) FROM quiz_rank WHERE user_id =?1 AND badge =?2", nativeQuery = true)
-    Long countByUserIdAndBadge(@Param("userId") Long userId, @Param("badge") int badge);
+    int countByUserIdAndBadge(@Param("userId") Long userId, @Param("badge") int badge);
 
 
 }

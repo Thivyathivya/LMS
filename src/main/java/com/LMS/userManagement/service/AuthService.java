@@ -1,10 +1,12 @@
 package com.LMS.userManagement.service;
 
 import com.LMS.userManagement.config.AuthenticationResponse;
+import com.LMS.userManagement.dto.ProfileDto;
 import com.LMS.userManagement.dto.RegisterRequest;
 import com.LMS.userManagement.model.*;
 import com.LMS.userManagement.repository.UserRepository;
 import com.LMS.userManagement.securityConfig.JwtService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -62,5 +65,21 @@ public class AuthService {
                 .name(user.getName())
                 .email(user.getEmail())
                 .build();
+    }
+
+    @Transactional
+    public ResponseEntity<?> saveAndEditProfile(ProfileDto profileRequest) {
+        Optional<User> user= userRepository.findById(profileRequest.getId());
+        if (user.isPresent()){
+            User user1 = user.get();
+            user1.setName(profileRequest.getName());
+            user1.setGender(profileRequest.getGender());
+            user1.setSchool(profileRequest.getSchool());
+            user1.setStandard(profileRequest.getStandard());
+            user1.setCity(profileRequest.getCity());
+            user1.setCountry(profileRequest.getCountry());
+            return ResponseEntity.ok(userRepository.save(user1)) ;
+        }
+        return ResponseEntity.ok("User does not found");
     }
 }
