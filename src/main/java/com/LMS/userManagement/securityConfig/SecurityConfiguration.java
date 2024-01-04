@@ -34,7 +34,7 @@ public class SecurityConfiguration {
                             auth.requestMatchers("lms/api/auth/**").permitAll()
                                     .requestMatchers("/lms/api/user/getAllCourse").permitAll()
                                     .requestMatchers("/lms/api/user/searchCourses").permitAll()
-                                    .requestMatchers("/lms/api/user/getCourseById").permitAll()
+                              //      .requestMatchers("/lms/api/user/getCourseById").permitAll()
                                     .requestMatchers("/lms/api/user/saveBadge").permitAll()
                                    .requestMatchers("/lms/api/auth/saveAndEditProfile").permitAll()
                                    /* .requestMatchers("/lms/api/user/").hasRole("user")
