@@ -1,9 +1,7 @@
 package com.LMS.userManagement.controller;
 
 import com.LMS.userManagement.config.AuthenticationResponse;
-import com.LMS.userManagement.dto.ProfileDto;
 import com.LMS.userManagement.dto.RegisterRequest;
-import com.LMS.userManagement.service.AWSS3Service;
 import com.LMS.userManagement.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

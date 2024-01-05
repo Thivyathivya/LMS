@@ -1,5 +1,5 @@
 
-package com.LMS.userManagement.service;
+package com.LMS.userManagement.awsS3;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

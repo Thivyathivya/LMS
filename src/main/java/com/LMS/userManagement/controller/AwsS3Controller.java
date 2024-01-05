@@ -1,6 +1,6 @@
 package com.LMS.userManagement.controller;
 
-import com.LMS.userManagement.service.AWSS3Service;
+import com.LMS.userManagement.awsS3.AWSS3Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
