@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/lms/api/user")
-@CrossOrigin(origins = "*")
-
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class QuizController {
     @Autowired
     QuizService quizService;

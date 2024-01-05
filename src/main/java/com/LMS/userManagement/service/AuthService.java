@@ -43,6 +43,11 @@ public class AuthService {
                 .confirmPassword(passwordEncoder.encode(request.getConfirmPassword()))
                 .role("user")
                 .createdDate(new Timestamp(System.currentTimeMillis()))
+             //   .city(null)
+             //   .country(null)
+              //  .school(null)
+             //   .standard(null)
+             //   .gender(null)
                 .build();
         userRepository.save(user);
       //  String jwtToken=jwtService.generateToken(user);
