@@ -38,13 +38,5 @@ public class AuthController {
     return "Welcome";
     }
 
-    @PostMapping("/saveAndEditProfile")
-    public ResponseEntity<?> saveAndEditProfile(@RequestBody ProfileDto profileRequest){
-    return authService.saveAndEditProfile(profileRequest);
-    }
-    @GetMapping("/getProfileById")
-    public ResponseEntity<?> getProfileById(@RequestHeader Long id){
-        return authService.getProfileById(id);
-    }
 
 }

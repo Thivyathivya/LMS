@@ -4,6 +4,7 @@ import com.LMS.userManagement.config.AuthenticationResponse;
 import com.LMS.userManagement.dto.ProfileDto;
 import com.LMS.userManagement.dto.RegisterRequest;
 import com.LMS.userManagement.model.*;
+import com.LMS.userManagement.repository.QuizRankRepository;
 import com.LMS.userManagement.repository.UserRepository;
 import com.LMS.userManagement.securityConfig.JwtService;
 import jakarta.transaction.Transactional;
@@ -24,6 +25,8 @@ public class AuthService {
 
     @Autowired
     private  UserRepository userRepository;
+    @Autowired
+    QuizRankRepository quizRankRepository;
 
     private final PasswordEncoder passwordEncoder;
 
@@ -55,37 +58,23 @@ public class AuthService {
         );
       User user =userRepository.findByEmail(email);
 
-      String jwtToken=jwtService.generateToken(user);
+        int goldCount = quizRankRepository.countByUserIdAndBadge(user.getId(), 1);
+        int silverCount = quizRankRepository.countByUserIdAndBadge(user.getId(), 2);
+        int bronzeCount = quizRankRepository.countByUserIdAndBadge(user.getId(), 3);
+        Integer energyPoints = quizRankRepository.sumOfEnergyPoints(user.getId());
+        String jwtToken=jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .role(user.getRole())
                 .userId(user.getId())
                 .name(user.getName())
                 .email(user.getEmail())
+                .gold(goldCount)
+                .silver(silverCount)
+                .bronze(bronzeCount)
+                .energyPoints(energyPoints)
                 .build();
     }
 
-    @Transactional
-    public ResponseEntity<?> saveAndEditProfile(ProfileDto profileRequest) {
-        Optional<User> user= userRepository.findById(profileRequest.getId());
-        if (user.isPresent()){
-            User user1 = user.get();
-            user1.setName(profileRequest.getName());
-            user1.setGender(profileRequest.getGender());
-            user1.setSchool(profileRequest.getSchool());
-            user1.setStandard(profileRequest.getStandard());
-            user1.setCity(profileRequest.getCity());
-            user1.setCountry(profileRequest.getCountry());
-            return ResponseEntity.ok(userRepository.save(user1)) ;
-        }
-        return ResponseEntity.ok("User does not found");
-    }
 
-    public ResponseEntity<?> getProfileById(Long id) {
-      Optional<User> user =  userRepository.findById(id);
-      if (!user.isEmpty()){
-          return ResponseEntity.ok(user);
-      }
-      return ResponseEntity.ok("User does not found");
-    }
 }

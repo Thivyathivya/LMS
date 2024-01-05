@@ -23,4 +23,13 @@ public class AuthenticationResponse {
 
     private String email;
 
+    private int gold;
+
+    private int silver;
+
+    private int bronze;
+
+    private Integer energyPoints;
+
+
 }
