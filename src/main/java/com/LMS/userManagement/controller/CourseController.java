@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/lms/api/user")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class CourseController {
     @Autowired
     CourseService courseService;

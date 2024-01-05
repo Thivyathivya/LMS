@@ -1,11 +1,10 @@
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/Section.java
-/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/CourseVideoController.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/AwsS3Controller.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/QuizRank.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/AuthController.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/CourseDetails.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/repository/SubSectionRepository.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/AdminController.java
-/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/config/CloudStorageConfig.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/UserController.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/enumFile/Roles.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/Student.java
@@ -27,7 +26,6 @@
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/Course.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/repository/CourseRepository.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/securityConfig/JwtService.java
-/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/service/CloudStorageService.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/dto/ProfileDto.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/token/Token.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/service/QuizService.java

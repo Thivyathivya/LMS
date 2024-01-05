@@ -108,11 +108,11 @@
 			<version>2.30.1</version>
 		</dependency>
 
-		<!--<dependency>
+		<dependency>
 			<groupId>software.amazon.awssdk</groupId>
 			<artifactId>s3</artifactId>
 			<version>2.22.10</version>
-		</dependency>-->
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

@@ -1,6 +1,7 @@
-/*
+
 package com.LMS.userManagement.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.core.ResponseInputStream;
 import software.amazon.awssdk.core.sync.RequestBody;
@@ -14,13 +15,14 @@ import java.io.IOException;
 @Service
 public class AWSS3Service {
 
-    private final S3Client s3Client;
+    @Autowired(required = true)
+     S3Client s3Client;
 
-    public AWSS3Service(S3Client s3Client) {
-        this.s3Client = s3Client;
-    }
+    final String bucketName="krays-lms-s3";
 
-    public void putObject(String bucketName,String key,byte[] file){
+
+
+    public void putObject(String key,byte[] file){
         PutObjectRequest objectRequest=PutObjectRequest.builder()
                 .bucket(bucketName)
                 .key(key)
@@ -28,7 +30,7 @@ public class AWSS3Service {
         s3Client.putObject(objectRequest, RequestBody.fromBytes(file));
     }
 
-    public byte[] getObject(String bucketName,String key){
+    public byte[] getObject(String key){
         GetObjectRequest getObjectRequest=GetObjectRequest.builder()
                 .bucket(bucketName)
                 .key(key)
@@ -45,4 +47,4 @@ public class AWSS3Service {
 
     }
 }
-*/
+
