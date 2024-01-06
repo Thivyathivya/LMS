@@ -1,6 +1,8 @@
 package com.LMS.userManagement.controller;
 
+import com.LMS.userManagement.dto.SectionDto;
 import com.LMS.userManagement.model.Course;
+import com.LMS.userManagement.model.Section;
 import com.LMS.userManagement.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,8 +22,8 @@ public class CourseController {
     CourseService courseService;
     @PostMapping("/saveCourse")
    // @PreAuthorize("hasAuthority('user')")
-    public ResponseEntity<?> saveCourse(@RequestBody List<Course> course){
-     List<Course> courseDto = courseService.saveCourse(course);
+    public ResponseEntity<?> saveCourse(@RequestBody Course course){
+     Course courseDto = courseService.saveCourse(course);
     if(courseDto != null){
          return ResponseEntity.ok(courseDto);
     }else {
@@ -59,7 +61,14 @@ public class CourseController {
         }
        return ResponseEntity.ok(courses);
     }
-
+    @PostMapping("/saveSection")
+    public ResponseEntity<?> saveSection(@RequestBody List<Section> sections){
+        return courseService.saveSection(sections);
+    }
+    /*@GetMapping("/searchCourseId")
+    public ResponseEntity<?> searchCourse(@RequestHeader Integer courseId){
+        return courseService.searchCourse(courseId);
+    }*/
 
 
 

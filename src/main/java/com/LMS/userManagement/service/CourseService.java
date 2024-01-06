@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CourseService {
@@ -24,8 +25,8 @@ public class CourseService {
     }
 
 
-    public List<Course> saveCourse(List<Course> course) {
-        return courseRepository.saveAll(course);
+    public Course saveCourse(Course course) {
+        return courseRepository.save(course);
     }
 
 
@@ -37,13 +38,18 @@ public class CourseService {
         return courseRepository.findAll(PageRequest.of(pageNo,pageSize));
     }
 
-    public ResponseEntity<?> saveSection(Integer courseId,List<Section> sections) {
-            Course course = courseRepository.findCourseByCourseId(courseId);
-        if (course != null){
-            List<Section> savedSections = sectionRepository.saveAll(sections);
-            return ResponseEntity.ok(savedSections);
+    public ResponseEntity<?> saveSection(List<Section> sections) {
+        if (sections != null) {
+            return ResponseEntity.ok(sectionRepository.saveAll(sections));
         }
-        return ResponseEntity.ok("Course not found");
+        return ResponseEntity.ok("Failure");
     }
 
+    /*public ResponseEntity<?> searchCourse(Integer courseId) {
+        Optional<Course> course =courseRepository.findById(courseId);
+        if (course != null){
+            return ResponseEntity.ok(course);
+        }
+        return ResponseEntity.ok("course not found");
+    }*/
 }
