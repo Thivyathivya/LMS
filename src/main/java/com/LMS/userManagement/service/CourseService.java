@@ -45,6 +45,14 @@ public class CourseService {
         return ResponseEntity.ok("Failure");
     }
 
+    public ResponseEntity<?> deleteCourseById(Integer courseId) {
+        if (courseRepository.existsById(courseId)){
+            courseRepository.deleteById(courseId);
+            return ResponseEntity.ok("Success");
+        }
+        return ResponseEntity.ok("Course not found");
+    }
+
     /*public ResponseEntity<?> searchCourse(Integer courseId) {
         Optional<Course> course =courseRepository.findById(courseId);
         if (course != null){
