@@ -32,11 +32,11 @@
 #ENTRYPOINT ["java","-jar","/app.jar"]
 
 #Docker Image
-#FROM openjdk:20
-#ADD ./userManagement-0.0.1-SNAPSHOT.jar  userManagement-0.0.1-SNAPSHOT.jar
-#ENTRYPOINT ["java","-jar","userManagement-0.0.1-SNAPSHOT.jar"]
-
 FROM openjdk:20
-ADD target/userManagement-0.0.1-SNAPSHOT.jar /app/userManagement-0.0.1-SNAPSHOT.jar
-WORKDIR /app
-ENTRYPOINT ["java", "-jar", "userManagement-0.0.1-SNAPSHOT.jar"]
+ADD ./userManagement-0.0.1-SNAPSHOT.jar  userManagement-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","userManagement-0.0.1-SNAPSHOT.jar"]
+
+#FROM openjdk:20
+#ADD userManagement-0.0.1-SNAPSHOT.jar /app/userManagement-0.0.1-SNAPSHOT.jar
+#WORKDIR /app
+#ENTRYPOINT ["java", "-jar", "userManagement-0.0.1-SNAPSHOT.jar"]
