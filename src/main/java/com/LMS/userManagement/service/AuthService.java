@@ -1,23 +1,27 @@
 package com.LMS.userManagement.service;
 
 import com.LMS.userManagement.config.AuthenticationResponse;
-import com.LMS.userManagement.dto.ProfileDto;
 import com.LMS.userManagement.dto.RegisterRequest;
 import com.LMS.userManagement.model.*;
 import com.LMS.userManagement.repository.QuizRankRepository;
 import com.LMS.userManagement.repository.UserRepository;
 import com.LMS.userManagement.securityConfig.JwtService;
-import jakarta.transaction.Transactional;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.Optional;
+import java.util.HashMap;
 
 @Service
 @RequiredArgsConstructor
@@ -43,11 +47,6 @@ public class AuthService {
                 .confirmPassword(passwordEncoder.encode(request.getConfirmPassword()))
                 .role("user")
                 .createdDate(new Timestamp(System.currentTimeMillis()))
-             //   .city(null)
-             //   .country(null)
-              //  .school(null)
-             //   .standard(null)
-             //   .gender(null)
                 .build();
         userRepository.save(user);
       //  String jwtToken=jwtService.generateToken(user);
@@ -68,6 +67,7 @@ public class AuthService {
         int bronzeCount = quizRankRepository.countByUserIdAndBadge(user.getId(), 3);
         Integer energyPoints = quizRankRepository.sumOfEnergyPoints(user.getId());
         String jwtToken=jwtService.generateToken(user);
+        String refreshToken=jwtService.generateRefreshToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .role(user.getRole())
@@ -78,8 +78,35 @@ public class AuthService {
                 .silver(silverCount)
                 .bronze(bronzeCount)
                 .energyPoints(energyPoints)
+                .refreshToken(refreshToken)
                 .build();
     }
 
 
+    public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        final String authHeader=request.getHeader(HttpHeaders.AUTHORIZATION);
+        final String refreshToken;
+        final String userEmail;
+
+        if(authHeader==null || !authHeader.startsWith("Bearer ")){
+            return;
+        }
+
+        refreshToken=authHeader.substring(7);
+        userEmail=jwtService.extractUsername(refreshToken);
+        if(userEmail!=null){
+            UserDetails userDetails=this.userRepository.findByEmail(userEmail);
+            if(jwtService.isTokenValid(refreshToken,userDetails)){
+                String accesstoken=jwtService.generateToken(userDetails);
+               var authResponse= AuthenticationResponse.builder()
+                        .token(accesstoken)
+                        .refreshToken(refreshToken)
+                        .build();
+
+                new ObjectMapper().writeValue(response.getOutputStream(),authResponse);
+            }
+        }
+
+    }
 }
