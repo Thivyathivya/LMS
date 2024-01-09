@@ -1,46 +1,47 @@
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\dto\RegisterRequest.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\util\GcpUtil.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\model\Course.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\repository\QuizRankRepository.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\controller\CourseController.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\repository\QuizRepository.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\service\AuthService.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\token\Token.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\model\SubSection.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\securityConfig\JwtAuthenticationFilter.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\model\Quiz.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\dto\SectionDto.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\repository\CourseRepository.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\token\TokenRepository.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\controller\AwsS3Controller.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\awsS3\AWSstorageConfig.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\dto\QuizDto.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\UserManagementApplication.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\model\BadgeCounts.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\securityConfig\JwtService.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\service\CourseService.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\enumFile\Roles.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\model\Role.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\model\QuizRank.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\model\Section.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\dto\SubSectionDto.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\controller\AuthController.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\dto\ProfileDto.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\repository\SectionRepository.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\securityConfig\SecurityConfiguration.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\controller\AdminController.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\service\QuizService.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\awsS3\AWSS3Service.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\model\Student.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\controller\QuizController.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\controller\UserController.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\repository\SubSectionRepository.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\service\ProfileService.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\config\AuthenticationResponse.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\dto\AuthenticationRequest.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\model\User.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\controller\ProfileController.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\enumFile\Permission.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\repository\UserRepository.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\dto\CourseDto.java
-C:\Users\user\Downloads\LMS-Backend-main\src\main\java\com\LMS\userManagement\securityConfig\ApplicationConfig.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/ProfileController.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/Section.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/AwsS3Controller.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/QuizRank.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/AuthController.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/CourseDetails.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/repository/SubSectionRepository.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/AdminController.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/awsS3/AWSstorageConfig.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/UserController.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/enumFile/Roles.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/Student.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/securityConfig/ApplicationConfig.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/User.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/dto/QuizDto.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/dto/RegisterRequest.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/repository/QuizRankRepository.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/SubSection.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/Role.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/config/AuthenticationResponse.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/UserManagementApplication.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/dto/AuthenticationRequest.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/repository/SectionRepository.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/securityConfig/JwtAuthenticationFilter.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/securityConfig/SecurityConfiguration.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/token/TokenRepository.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/repository/QuizRepository.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/awsS3/AWSS3Service.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/util/AWSUtil.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/dto/SubSectionDto.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/service/ProfileService.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/Course.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/repository/CourseRepository.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/securityConfig/JwtService.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/dto/SectionDto.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/dto/ProfileDto.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/token/Token.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/service/QuizService.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/dto/CourseDto.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/QuizController.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/service/AuthService.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/service/CourseService.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/CourseController.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/repository/UserRepository.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/Quiz.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/BadgeCounts.java
+/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/enumFile/Permission.java

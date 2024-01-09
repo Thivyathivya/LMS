@@ -113,6 +113,11 @@
 			<artifactId>s3</artifactId>
 			<version>2.22.10</version>
 		</dependency>
+
+		<!--<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>-->
 	</dependencies>
 	<build>
 		<plugins>
@@ -129,6 +134,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>lms-project</finalName>
 	</build>
 
 </project>

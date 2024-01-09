@@ -32,6 +32,10 @@
 #ENTRYPOINT ["java","-jar","/app.jar"]
 
 #Docker Image
+#FROM openjdk:20
+#ADD ./userManagement-0.0.1-SNAPSHOT.jar  userManagement-0.0.1-SNAPSHOT.jar
+#ENTRYPOINT ["java","-jar","userManagement-0.0.1-SNAPSHOT.jar"]
+
 FROM openjdk:20
-ADD ./userManagement-0.0.1-SNAPSHOT.jar  userManagement-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","userManagement-0.0.1-SNAPSHOT.jar"]
+ADD target/lms-project.jar lms-project.jar
+ENTRYPOINT ["java","-jar","/lms-project.jar"]

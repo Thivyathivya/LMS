@@ -19,6 +19,9 @@ public class JwtService {
 
     private static final String SECRET_KEY="404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970";
 
+    private final long jwtTokenExpiration=1000*60*15; //15mins
+    private final long refreshTokenExpiration=604800000; //7 days
+
     public String extractUsername(String token) {
         return  extractClaim(token,Claims::getSubject);
     }
@@ -33,16 +36,7 @@ public class JwtService {
             Map<String,Object> extraClaims,
             UserDetails userDetails
     ){
-
-
-        return  Jwts
-                .builder()
-                .setClaims(extraClaims)
-                .setSubject(userDetails.getUsername())
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis()+1000 *60 *24))
-                .signWith(getSigninKey(), SignatureAlgorithm.HS256)
-                .compact();
+        return buildToken(extraClaims,userDetails,jwtTokenExpiration);
     }
 
 
@@ -78,5 +72,22 @@ return  claimsResolver.apply(claims);
 
         byte[] keyBytes= Decoders.BASE64.decode(SECRET_KEY);
         return Keys.hmacShaKeyFor(keyBytes);
+    }
+
+    public String generateRefreshToken(UserDetails userDetails){
+            return buildToken(new HashMap<>(),userDetails,refreshTokenExpiration);
+    }
+
+    public String buildToken(Map<String,Object> extraClaims,
+                             UserDetails userDetails,
+                             long expiration){
+        return  Jwts
+                .builder()
+                .setClaims(extraClaims)
+                .setSubject(userDetails.getUsername())
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis()+expiration))
+                .signWith(getSigninKey(), SignatureAlgorithm.HS256)
+                .compact();
     }
 }
