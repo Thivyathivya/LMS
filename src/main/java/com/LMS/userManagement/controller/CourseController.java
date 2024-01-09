@@ -1,5 +1,7 @@
 package com.LMS.userManagement.controller;
 
+import com.LMS.userManagement.dto.CourseDto;
+import com.LMS.userManagement.dto.UpdateRequest;
 import com.LMS.userManagement.model.Course;
 import com.LMS.userManagement.model.Section;
 import com.LMS.userManagement.service.CourseService;
@@ -68,14 +70,14 @@ public class CourseController {
     public ResponseEntity<?> deleteCourseById(@RequestHeader Integer courseId){
         return courseService.deleteCourseById(courseId);
     }
-
-    /*@GetMapping("/searchCourseId")
-    public ResponseEntity<?> searchCourse(@RequestHeader Integer courseId){
-        return courseService.searchCourse(courseId);
-    }*/
-
-
-
+    @PostMapping("/updateCourse")
+    public ResponseEntity<?> updateCourse(@RequestBody CourseDto courseDto){
+        return courseService.updateCourse(courseDto);
+    }
+    @PostMapping("/updateSections")
+    public ResponseEntity<?> updateSections(@RequestBody UpdateRequest updateRequest){
+        return courseService.updateSections(updateRequest);
+    }
 
 
 }

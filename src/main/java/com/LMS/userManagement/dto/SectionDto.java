@@ -15,5 +15,5 @@ public class SectionDto {
     private Integer courseId;
     private Integer key;
     private String title;
-    private List<SubSection> subSections;
+    private List<SubSectionDto> subSections;
 }

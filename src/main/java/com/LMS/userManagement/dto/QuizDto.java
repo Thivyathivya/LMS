@@ -10,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 public class QuizDto {
     private Integer quizId;
+    private Integer subSectionId;
     private String title;
     private Integer key;
     private String question;
