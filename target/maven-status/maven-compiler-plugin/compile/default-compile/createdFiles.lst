@@ -46,6 +46,5 @@ com/LMS/userManagement/controller/AdminController.class
 com/LMS/userManagement/repository/SubSectionRepository.class
 com/LMS/userManagement/dto/SubSectionDto.class
 com/LMS/userManagement/service/QuizService.class
-com/LMS/userManagement/model/CourseDetails.class
 com/LMS/userManagement/model/Section.class
 com/LMS/userManagement/dto/SectionDto.class

@@ -3,7 +3,6 @@
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/AwsS3Controller.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/QuizRank.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/AuthController.java
-/Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/model/CourseDetails.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/repository/SubSectionRepository.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/controller/AdminController.java
 /Users/hey/Desktop/Spring boot projects/LMS_Backend/userManagement/src/main/java/com/LMS/userManagement/awsS3/AWSstorageConfig.java
