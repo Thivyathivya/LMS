@@ -1,6 +1,5 @@
 package com.LMS.userManagement.controller;
 
-import com.LMS.userManagement.dto.SectionDto;
 import com.LMS.userManagement.model.Course;
 import com.LMS.userManagement.model.Section;
 import com.LMS.userManagement.service.CourseService;
@@ -65,6 +64,11 @@ public class CourseController {
     public ResponseEntity<?> saveSection(@RequestBody List<Section> sections){
         return courseService.saveSection(sections);
     }
+    @DeleteMapping("/deleteCourseById")
+    public ResponseEntity<?> deleteCourseById(@RequestHeader Integer courseId){
+        return courseService.deleteCourseById(courseId);
+    }
+
     /*@GetMapping("/searchCourseId")
     public ResponseEntity<?> searchCourse(@RequestHeader Integer courseId){
         return courseService.searchCourse(courseId);
