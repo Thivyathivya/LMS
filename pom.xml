@@ -134,7 +134,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>lms-project</finalName>
 	</build>
 
 </project>
