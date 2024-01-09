@@ -37,6 +37,6 @@
 #ENTRYPOINT ["java","-jar","userManagement-0.0.1-SNAPSHOT.jar"]
 
 FROM openjdk:20
-WORKDIR /target
+#WORKDIR /target
 ADD ./lms-project.jar lms-project.jar
 ENTRYPOINT ["java","-jar","/lms-project.jar"]
