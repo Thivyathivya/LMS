@@ -1,9 +1,9 @@
 package com.LMS.userManagement.controller;
 
-import com.LMS.userManagement.dto.CourseDto;
-import com.LMS.userManagement.dto.UpdateRequest;
 import com.LMS.userManagement.model.Course;
+import com.LMS.userManagement.model.Quiz;
 import com.LMS.userManagement.model.Section;
+import com.LMS.userManagement.model.SubSection;
 import com.LMS.userManagement.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -70,14 +70,27 @@ public class CourseController {
     public ResponseEntity<?> deleteCourseById(@RequestHeader Integer courseId){
         return courseService.deleteCourseById(courseId);
     }
-    @PostMapping("/updateCourse")
-    public ResponseEntity<?> updateCourse(@RequestBody CourseDto courseDto){
-        return courseService.updateCourse(courseDto);
+    @PutMapping("/updateCourse")
+    public  ResponseEntity<?> updateCourse(@RequestBody Course course){
+        return courseService.updateCourse(course);
     }
-    @PostMapping("/updateSections")
-    public ResponseEntity<?> updateSections(@RequestBody UpdateRequest updateRequest){
-        return courseService.updateSections(updateRequest);
+    @PutMapping("/updateSection")
+    public  ResponseEntity<?> updateSection(@RequestBody Section section){
+        return courseService.updateSection(section);
     }
+    @PutMapping("/updateSubSection")
+    public  ResponseEntity<?> updateSubSection(@RequestBody SubSection subSection){
+        return courseService.updateSubSection(subSection);
+    }
+    @PutMapping("/updateQuiz")
+    public  ResponseEntity<?> updateQuiz(@RequestBody Quiz quiz){
+        return courseService.updateQuiz(quiz);
+    }
+
+
+
+
+
 
 
 }
