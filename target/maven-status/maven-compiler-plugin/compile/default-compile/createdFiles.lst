@@ -3,6 +3,7 @@ com/LMS/userManagement/securityConfig/SecurityConfiguration.class
 com/LMS/userManagement/dto/QuizDto.class
 com/LMS/userManagement/controller/CourseController.class
 com/LMS/userManagement/service/CourseService.class
+com/LMS/userManagement/dto/UpdateRequest.class
 com/LMS/userManagement/enumFile/Permission.class
 com/LMS/userManagement/model/BadgeCounts.class
 com/LMS/userManagement/model/QuizRank.class
@@ -48,3 +49,5 @@ com/LMS/userManagement/dto/SubSectionDto.class
 com/LMS/userManagement/service/QuizService.class
 com/LMS/userManagement/model/Section.class
 com/LMS/userManagement/dto/SectionDto.class
+com/LMS/userManagement/service/SectionService.class
+com/LMS/userManagement/exception/CustomExceptionHandler.class

@@ -2,6 +2,7 @@ package com.LMS.userManagement.securityConfig;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -13,7 +14,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
+import org.springframework.web.servlet.HandlerExceptionResolver;
 
 
 @Configuration
@@ -22,11 +23,16 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableMethodSecurity
 public class SecurityConfiguration {
 
-
-    private final   JwtAuthenticationFilter jwtAuthFilter;
+    @Autowired
+    @Qualifier("handlerExceptionResolver")
+   private HandlerExceptionResolver handlerExceptionResolver;
 
     private final   AuthenticationProvider authenticationProvider;
 
+ @Bean
+    public JwtAuthenticationFilter jwtAuthFilter(){
+        return new JwtAuthenticationFilter(handlerExceptionResolver);
+    }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -49,7 +55,7 @@ public class SecurityConfiguration {
                 .sessionManagement(sess->sess
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter,UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthFilter(),UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }
