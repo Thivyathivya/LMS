@@ -40,10 +40,10 @@ public class SecurityConfiguration {
                .csrf(csrf ->csrf.disable())
                         .authorizeHttpRequests(auth->
                             auth.requestMatchers("lms/api/auth/**").permitAll()
-                                    .requestMatchers("/lms/api/user/getAllCourse").permitAll()
-                                    .requestMatchers("/lms/api/user/searchCourses").permitAll()
+                                    //.requestMatchers("/lms/api/user/getAllCourse").permitAll()
+                                    //.requestMatchers("/lms/api/user/searchCourses").permitAll()
                                     .requestMatchers(HttpMethod.OPTIONS).permitAll()
-                                    .requestMatchers("/lms/api/user/saveBadge").permitAll()
+                                    //.requestMatchers("/lms/api/user/saveBadge").permitAll()
                                    /*.requestMatchers("/lms/api/auth/saveAndEditProfile").permitAll()
                                     .requestMatchers("/lms/api/user/saveSection").permitAll()
                                     .requestMatchers("/lms/api/user/saveCourse").permitAll()

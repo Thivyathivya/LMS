@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CourseDto {
-    public Integer courseId;
+    public Long courseId;
     public String title;
     public String authorName;
     public String description;

@@ -7,7 +7,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface CourseRepository extends JpaRepository<Course,Integer> {
@@ -17,7 +16,6 @@ public interface CourseRepository extends JpaRepository<Course,Integer> {
             "OR c.description iLIKE CONCAT('%', :search, '%') " +
             "OR c.category iLIKE CONCAT ('%', :search, '%')",nativeQuery = true)
     List<Course> searchAllCourse( @Param("search")String search);
-
 
 
 
