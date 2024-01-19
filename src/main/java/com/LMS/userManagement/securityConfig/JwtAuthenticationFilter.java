@@ -1,5 +1,6 @@
 package com.LMS.userManagement.securityConfig;
 
+import com.LMS.userManagement.repository.TokenRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,12 +18,14 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import java.io.IOException;
-
+//commented for Handler exception
 //@Component
 public class JwtAuthenticationFilter  extends OncePerRequestFilter {
 
     @Autowired
     private     JwtService jwtService;
+    @Autowired
+    private TokenRepository tokenRepository;
 
     private final HandlerExceptionResolver exceptionResolver;
 
@@ -57,7 +60,11 @@ try {
 
         UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
 
-        if (jwtService.isTokenValid(jwt, userDetails)) {
+        var isTokenValid=tokenRepository.findByToken(jwt)
+                .map(t -> !t.getExpired() && !t.getRevoked())
+                .orElse(false);
+
+        if (jwtService.isTokenValid(jwt, userDetails) && isTokenValid) {
             UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                     userDetails, null, userDetails.getAuthorities()
             );

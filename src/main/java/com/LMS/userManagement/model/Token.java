@@ -1,4 +1,4 @@
-package com.LMS.userManagement.token;
+package com.LMS.userManagement.model;
 
 import com.LMS.userManagement.model.User;
 import jakarta.persistence.*;

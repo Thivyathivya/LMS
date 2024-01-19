@@ -4,6 +4,7 @@ import com.LMS.userManagement.config.AuthenticationResponse;
 import com.LMS.userManagement.dto.RegisterRequest;
 import com.LMS.userManagement.model.*;
 import com.LMS.userManagement.repository.QuizRankRepository;
+import com.LMS.userManagement.repository.TokenRepository;
 import com.LMS.userManagement.repository.UserRepository;
 import com.LMS.userManagement.securityConfig.JwtService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -37,6 +38,8 @@ public class AuthService {
     private final JwtService jwtService;
 
     private final AuthenticationManager authenticationManager;
+
+    private final TokenRepository tokenRepository;
     public ResponseEntity<String> register(RegisterRequest request) {
 
 
@@ -48,10 +51,13 @@ public class AuthService {
                 .role("user")
                 .createdDate(new Timestamp(System.currentTimeMillis()))
                 .build();
-        userRepository.save(user);
-      //  String jwtToken=jwtService.generateToken(user);
+       var savedUser= userRepository.save(user);
+       var jwtToken=jwtService.generateToken(user);
+        saveUserToken(savedUser, jwtToken);
         return ResponseEntity.ok("Registered Successfully");
     }
+
+
 
     public AuthenticationResponse authentication(String email, String password) {
 
@@ -60,13 +66,15 @@ public class AuthService {
                         email,password
                 )
         );
-      User user =userRepository.findByEmail(email);
-
+      var user =userRepository.findByEmail(email).orElseThrow();
         int goldCount = quizRankRepository.countByUserIdAndBadge(user.getId(), 1);
         int silverCount = quizRankRepository.countByUserIdAndBadge(user.getId(), 2);
         int bronzeCount = quizRankRepository.countByUserIdAndBadge(user.getId(), 3);
         Integer energyPoints = quizRankRepository.sumOfEnergyPoints(user.getId());
         String jwtToken=jwtService.generateToken(user);
+        revokeAllUserTokens(user);
+        saveUserToken(user, jwtToken);
+
         String refreshToken=jwtService.generateRefreshToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
@@ -96,11 +104,13 @@ public class AuthService {
         refreshToken=authHeader.substring(7);
         userEmail=jwtService.extractUsername(refreshToken);
         if(userEmail!=null){
-            UserDetails userDetails=this.userRepository.findByEmail(userEmail);
-            if(jwtService.isTokenValid(refreshToken,userDetails)){
-                String accesstoken=jwtService.generateToken(userDetails);
+            var user=this.userRepository.findByEmail(userEmail).orElseThrow();
+            if(jwtService.isTokenValid(refreshToken,user)){
+                String accessToken=jwtService.generateToken(user);
+                revokeAllUserTokens(user);
+                saveUserToken(user,accessToken);
                var authResponse= AuthenticationResponse.builder()
-                        .token(accesstoken)
+                        .token(accessToken)
                         .refreshToken(refreshToken)
                         .build();
 
@@ -108,5 +118,26 @@ public class AuthService {
             }
         }
 
+    }
+    private void saveUserToken(User user, String jwtToken) {
+        var token=Token.builder()
+                .user(user)
+                .token(jwtToken)
+                .tokenType("BEARER")
+                .revoked(false)
+                .expired(false)
+                .build();
+        tokenRepository.save(token);
+    }
+
+    private void revokeAllUserTokens(User user){
+        var validUserTokens=tokenRepository.findAllvalidTokensByUser(user.getId());
+        if(validUserTokens.isEmpty())
+            return;
+        validUserTokens.forEach(t -> {
+            t.setRevoked(true);
+            t.setExpired(true);
+        });
+        tokenRepository.saveAll(validUserTokens);
     }
 }
