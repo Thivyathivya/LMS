@@ -1,3 +1,4 @@
+/*
 package com.LMS.userManagement.exception;
 
 import io.jsonwebtoken.ExpiredJwtException;
@@ -27,3 +28,4 @@ public class CustomExceptionHandler {
         return errorDetail;
     }
 }
+*/

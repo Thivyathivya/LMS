@@ -31,7 +31,7 @@ public class SecurityConfiguration {
 
     private final   AuthenticationProvider authenticationProvider;
 
-    private final LogoutHandler logoutHandler;
+   // private final LogoutHandler logoutHandler;
 
  @Bean
     public JwtAuthenticationFilter jwtAuthFilter(){
@@ -59,11 +59,11 @@ public class SecurityConfiguration {
                 .sessionManagement(sess->sess
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter(),UsernamePasswordAuthenticationFilter.class)
-               .logout(logout -> logout.logoutUrl("lms/api/auth/logout")
-                       .addLogoutHandler(logoutHandler)
-                       .logoutSuccessHandler(((request, response, authentication) ->
-                               SecurityContextHolder.clearContext())));
+                .addFilterBefore(jwtAuthFilter(),UsernamePasswordAuthenticationFilter.class);
+             //  .logout(logout -> logout.logoutUrl("lms/api/auth/logout")
+               //        .addLogoutHandler(logoutHandler)
+                 //      .logoutSuccessHandler(((request, response, authentication) ->
+                   //            SecurityContextHolder.clearContext())));
         return http.build();
     }
 }

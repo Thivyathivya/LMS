@@ -23,6 +23,7 @@ public interface CourseRepository extends JpaRepository<Course,Integer> {
 
 
 
+
 /*
     @Query(value = "SELECT * FROM course c " +
             "WHERE (:title IS NULL OR LOWER(c.title) LIKE CONCAT('%', LOWER(CAST(:title AS TEXT)), '%')) " +

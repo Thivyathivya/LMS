@@ -52,8 +52,6 @@ public class AuthService {
                 .createdDate(new Timestamp(System.currentTimeMillis()))
                 .build();
        var savedUser= userRepository.save(user);
-       var jwtToken=jwtService.generateToken(user);
-        saveUserToken(savedUser, jwtToken);
         return ResponseEntity.ok("Registered Successfully");
     }
 
@@ -72,8 +70,8 @@ public class AuthService {
         int bronzeCount = quizRankRepository.countByUserIdAndBadge(user.getId(), 3);
         Integer energyPoints = quizRankRepository.sumOfEnergyPoints(user.getId());
         String jwtToken=jwtService.generateToken(user);
-        revokeAllUserTokens(user);
-        saveUserToken(user, jwtToken);
+       // revokeAllUserTokens(user);
+        //saveUserToken(user, jwtToken);
 
         String refreshToken=jwtService.generateRefreshToken(user);
         return AuthenticationResponse.builder()
@@ -107,8 +105,8 @@ public class AuthService {
             var user=this.userRepository.findByEmail(userEmail).orElseThrow();
             if(jwtService.isTokenValid(refreshToken,user)){
                 String accessToken=jwtService.generateToken(user);
-                revokeAllUserTokens(user);
-                saveUserToken(user,accessToken);
+               // revokeAllUserTokens(user);
+              //  saveUserToken(user,accessToken);
                var authResponse= AuthenticationResponse.builder()
                         .token(accessToken)
                         .refreshToken(refreshToken)

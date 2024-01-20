@@ -1,3 +1,4 @@
+/*
 package com.LMS.userManagement.tenantConfigBySpringIO;
 
 
@@ -18,3 +19,4 @@ public class TenantContext {
     }
 
 }
+*/

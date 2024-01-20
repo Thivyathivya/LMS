@@ -22,5 +22,5 @@ public class Cart {
     private Integer courseId;
     private Long userId;
     @CurrentTimestamp
-    private Timestamp createdAt;
+    private Timestamp createDate;
 }

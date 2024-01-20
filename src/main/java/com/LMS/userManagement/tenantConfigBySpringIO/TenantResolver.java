@@ -1,3 +1,4 @@
+/*
 package com.LMS.userManagement.tenantConfigBySpringIO;
 
 import org.springframework.lang.NonNull;
@@ -10,3 +11,4 @@ public interface TenantResolver<T> {
     static final String DEFAULT_SCHEMA="public";
 }
 
+*/

@@ -1,3 +1,4 @@
+/*
 package com.LMS.userManagement.tenantConfigBySpringIO;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,3 +26,4 @@ public class HttpHeaderTenantResolver implements TenantResolver<HttpServletReque
         return tenantHeader;
     }
 }
+*/
