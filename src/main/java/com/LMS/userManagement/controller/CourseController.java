@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 @RestController
@@ -33,7 +34,7 @@ public class CourseController {
     }
     @GetMapping("/getCourseById")
  //   @PreAuthorize("hasAuthority('user')")
-    public ResponseEntity<?> searchCourseById(@RequestHeader Integer courseId){
+    public ResponseEntity<?> searchCourseById(@RequestHeader UUID courseId){
         Course course = courseService.searchCourseById(courseId);
         if(course != null){
             return ResponseEntity.ok(course);
@@ -67,7 +68,7 @@ public class CourseController {
         return courseService.saveSection(sections);
     }
     @DeleteMapping("/deleteCourseById")
-    public ResponseEntity<?> deleteCourseById(@RequestHeader Integer courseId){
+    public ResponseEntity<?> deleteCourseById(@RequestHeader UUID courseId){
         return courseService.deleteCourseById(courseId);
     }
     @PutMapping("/updateCourse")

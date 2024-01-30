@@ -36,4 +36,12 @@ public class ProfileService {
         }
         return ResponseEntity.ok("User does not found");
     }
+
+    public ResponseEntity<?> deleteUserById(Long id) {
+        if (userRepository.existsById(id)){
+            userRepository.deleteById(id);
+            return ResponseEntity.ok("Success");
+        }
+        return ResponseEntity.ok("User not found");
+    }
 }

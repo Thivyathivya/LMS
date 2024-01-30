@@ -5,12 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class QuizDto {
-    private Integer quizId;
-    private Integer subSectionId;
+    private UUID quizId;
+    private UUID subSectionId;
     private String title;
     private Integer key;
     private String question;

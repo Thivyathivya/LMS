@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class CourseService {
@@ -27,7 +28,7 @@ public class CourseService {
     QuizRepository quizRepository;
 
 
-    public Course searchCourseById(Integer courseId) {
+    public Course searchCourseById(UUID courseId) {
         return courseRepository.findCourseByCourseId(courseId);
     }
 
@@ -52,7 +53,7 @@ public class CourseService {
         return ResponseEntity.ok("Failure");
     }
 
-    public ResponseEntity<?> deleteCourseById(Integer courseId) {
+    public ResponseEntity<?> deleteCourseById(UUID courseId) {
         if (courseRepository.existsById(courseId)){
             courseRepository.deleteById(courseId);
             return ResponseEntity.ok("Success");

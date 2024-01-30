@@ -23,4 +23,8 @@ public class ProfileController {
         return profileService.getProfileById(id);
     }
 
+    @DeleteMapping("/deleteUserById")
+    public ResponseEntity<?> deleteUserById(@RequestHeader Long id){
+        return profileService.deleteUserById(id);
+    }
 }

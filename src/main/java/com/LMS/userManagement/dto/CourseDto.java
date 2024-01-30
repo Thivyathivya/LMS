@@ -7,12 +7,13 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class CourseDto {
-    public Integer courseId;
+    public UUID courseId;
     public String title;
     public String authorName;
     public String description;

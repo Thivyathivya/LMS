@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class CartService {
@@ -48,7 +49,7 @@ public class CartService {
     }
 
 
-    public ResponseEntity<?> deleteCartById(Long cartId) {
+    public ResponseEntity<?> deleteCartById(UUID cartId) {
         if (cartRepository.existsById(cartId)){
             cartRepository.deleteById(cartId);
             return ResponseEntity.ok("success");

@@ -8,10 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
-public interface CourseRepository extends JpaRepository<Course,Integer> {
-    Course findCourseByCourseId(Integer courseId);
+public interface CourseRepository extends JpaRepository<Course, UUID> {
+    Course findCourseByCourseId(UUID courseId);
     @Query(value = "SELECT * FROM course c WHERE " +
             "c.title iLIKE CONCAT('%',:search, '%')" +
             "OR c.description iLIKE CONCAT('%', :search, '%') " +

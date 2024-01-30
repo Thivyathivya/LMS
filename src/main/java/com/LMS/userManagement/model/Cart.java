@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CurrentTimestamp;
 
 import java.sql.Timestamp;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -18,8 +19,8 @@ import java.sql.Timestamp;
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long cartId;
-    private Integer courseId;
+    private UUID cartId;
+    private UUID courseId;
     private Long userId;
     @CurrentTimestamp
     private Timestamp createDate;

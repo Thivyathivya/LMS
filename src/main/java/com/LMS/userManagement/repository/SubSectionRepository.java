@@ -8,10 +8,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 
-public interface SubSectionRepository extends JpaRepository<SubSection,Integer> {
-    @Query(value = "Select * from sub_section where section_id=?1 And sub_section_id=?2",nativeQuery = true)
-    Optional<SubSection> findById(@Param("sectionId") Integer sectionId,@Param("subSectionId") Integer subSectionId);
+public interface SubSectionRepository extends JpaRepository<SubSection, UUID> {
+
 }
